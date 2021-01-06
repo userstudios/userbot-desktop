@@ -1,0 +1,31 @@
+:root {
+  --main-bg-color: #36393F;
+  --main-inbox-color: #30363D;
+  --main-withe-color: #FFFFFF;
+  --main-green-color: #3FB950;
+  --main-green-hover-color: #3bcc4f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+header {
+  text-align: center;
+  color: white;
+}
+
+.sec-uptodate {
+  display: none;
+  text-align: center;
+}
+
+h3 {
+  color: var(--main-green-hover-color);
+}
