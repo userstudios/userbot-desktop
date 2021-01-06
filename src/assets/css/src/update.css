@@ -1,0 +1,22 @@
+.sec-update {
+    text-align: center;
+    margin-top: 40px;
+    display: none;
+}
+
+.btn-update {
+    color: var(--main-withe-color);
+    outline: none;
+    background-color: var(--main-green-color);
+    padding: 10px 14px;
+    border: none;
+    font-size: 1.4em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.btn-update:hover {
+    transition: 0.2s;
+    background-color: var(--main-green-hover-color);
+}
