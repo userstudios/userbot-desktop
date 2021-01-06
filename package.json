@@ -1,61 +1,59 @@
 {
-  "name": "userbot-desktop-app",
-  "productName": "userbot-desktop-app",
-  "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/app.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
-  },
-  "keywords": [],
-  "author": {
-    "name": "IchBinHanz",
-    "email": "ichbinhanz88@gmail.com"
-  },
-  "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "userbot_desktop_app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+    "name": "userbot-desktop-app",
+    "productName": "userbot-desktop-app",
+    "version": "1.0.0",
+    "description": "My Electron application description",
+    "main": "src/app.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "lint": "echo \"No linting configured\""
+    },
+    "keywords": [],
+    "author": {
+        "name": "IchBinHanz",
+        "email": "ichbinhanz88@gmail.com"
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [{
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "userbot_desktop_app"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ]
         }
-      ]
+    },
+    "dependencies": {
+        "electron-squirrel-startup": "^1.0.0",
+        "file-dialog": "0.0.8",
+        "jarfile": "^2.0.0",
+        "node-fetch": "^2.6.1"
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.54",
+        "@electron-forge/maker-deb": "^6.0.0-beta.54",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+        "@electron-forge/maker-zip": "^6.0.0-beta.54",
+        "electron": "11.1.1"
     }
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "file-dialog": "0.0.8",
-    "jarfile": "^2.0.0",
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.54",
-    "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
-    "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "11.1.1"
-  }
 }
