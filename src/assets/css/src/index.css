@@ -33,6 +33,11 @@ h3 {
     font-size: medium;
 }
 
+h4,
+p {
+    margin: 16px;
+}
+
 header {
     display: flex;
     flex-direction: row;
