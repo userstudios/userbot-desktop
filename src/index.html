@@ -8,6 +8,8 @@
     <link href="./assets/css/src/index.css" , rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./assets/js/src/index.js"></script>
+    <script src="./assets/js/src/installer/engine.js"></script>
     <!-- <link href="./css/animations-main.css" rel="stylesheet">
     <link href="./css/style-main.css" rel="stylesheet"> -->
     <!-- Hier muss der name-Tag eigentlich bleiben...!  -->
@@ -19,7 +21,7 @@
 <body>
     <header>
         <h1>UserBot Installer/Updater</h1>
-        <button id="submitButton">Install/Update</button>
+        <button id="installUpdateButton">Install/Update</button>
     </header>
     <main>
 
@@ -43,7 +45,7 @@
             <div>
 
                 <!-- Beispiel für einen on/off Switch -->
-                <label class="switch" id="AutoKick">
+                <label class="switch" id="contract">
                     <input type="checkbox" />
                     <span class="slider"></span>
                 </label>
@@ -70,7 +72,7 @@
                     <a class="material-icons">help</a>
                     <p>Test-Hilfsnachricht!</p>
                 </div>
-                <div class="input-wrapper"><input type="url" id="Webhook"></div>
+                <div class="input-wrapper"><input type="url" id="directorypath"></div>
             </div>
         </div>
     </main>
