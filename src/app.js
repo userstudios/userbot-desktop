@@ -9,8 +9,8 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
     // Create the browser window.
     const win = new BrowserWindow({
-        width: 1000,
-        height: 300,
+        width: 500,
+        height: 500,
         webPreferences: {
             nodeIntegration: true
         },
@@ -22,7 +22,7 @@ const createWindow = () => {
     win.loadFile(path.join(__dirname, 'index.html'));
     win.removeMenu()
         // Open the DevTools.
-        // win.webContents.openDevTools();
+    win.webContents.openDevTools();
 };
 
 
