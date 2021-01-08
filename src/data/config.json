@@ -1,1 +1,6 @@
-{"mc_path":"C:\\Users\\IchBi\\AppData\\Roaming\\.minecraft","download_server":"http://download-userbot.netlify.app/latest/UserBot.jar"}
+{
+    "mc_path": "C:\\Users\\IchBi\\AppData\\Roaming\\.minecraft",
+    "download_server": "http://download-userbot.netlify.app/latest/UserBot.jar",
+    "discord_invite_link": "http://discord.userbot.userstudios.org"
+
+}

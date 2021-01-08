@@ -19,7 +19,8 @@
     "config": {
         "forge": {
             "packagerConfig": {},
-            "makers": [{
+            "makers": [
+                {
                     "name": "@electron-forge/maker-squirrel",
                     "config": {
                         "name": "userbot_desktop_app"
@@ -46,7 +47,8 @@
         "electron-squirrel-startup": "^1.0.0",
         "file-dialog": "0.0.8",
         "jarfile": "^2.0.0",
-        "node-fetch": "^2.6.1"
+        "node-fetch": "^2.6.1",
+        "open": "^7.3.1"
     },
     "devDependencies": {
         "@electron-forge/cli": "^6.0.0-beta.54",
