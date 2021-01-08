@@ -1,5 +1,3 @@
-const open = require('open');
-const fs = require('fs');
 const buttonJoinDiscord = document.getElementById('joinDiscordButton');
 var config_data = fs.readFileSync(path.join(__dirname, 'data/config.json'));
 
