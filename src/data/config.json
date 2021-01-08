@@ -1,6 +1,5 @@
 {
-    "mc_path": "C:\\Users\\IchBi\\AppData\\Roaming\\.minecraft",
+    "download_path": "C:\\Users\\${USER}\\AppData\\Roaming\\.minecraft\\LabyMod\\addons-1.12",
     "download_server": "http://download-userbot.netlify.app/latest/UserBot.jar",
     "discord_invite_link": "http://discord.userbot.userstudios.org"
-
 }

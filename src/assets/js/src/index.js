@@ -6,3 +6,4 @@ const fileDialog = require('file-dialog');
 const path = require('path');
 const fetch = require('node-fetch');
 const jarfile = require("jarfile");
+const glob = require("glob");
