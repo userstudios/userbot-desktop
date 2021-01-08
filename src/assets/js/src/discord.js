@@ -1,5 +1,5 @@
 const buttonJoinDiscord = document.getElementById('joinDiscordButton');
-var config_data = fs.readFileSync(path.join(__dirname, 'data/config.json'));
+var config_data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json')));
 
 // Register event handlers
 window.onload = function() {
@@ -7,6 +7,5 @@ window.onload = function() {
 }
 
 function openDiscordHandler() {
-    let discordLink = config_data.discord_invite_link;
-    open(discordLink);
+    open(config_data.discord_invite_link);
 }

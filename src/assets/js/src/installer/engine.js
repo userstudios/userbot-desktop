@@ -4,8 +4,7 @@ const inputInstallPath = document.getElementById('directorypath');
 const contractCheckbox = document.getElementById('contract');
 const installUpdateButton = document.getElementById('installUpdateButton');
 
-var config_data = fs.readFileSync(path.join(__dirname, 'data/config.json'));
-var config_data = JSON.parse(config_data);
+var config_data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json')));
 
 
 // Register events
