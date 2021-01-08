@@ -80,7 +80,7 @@
         <div class="nav-wrapper">
             <div class="nav" id="userbot_selection">
                 <a style="color: var(--accent);">UserBot Hauptversion</a>
-                <a style="color: var(--dark); cursor: pointer;" onclick="alert("LOL")">UserBot Pre-Edition</a>
+                <a style="color: var(--dark); cursor: pointer;" id="a-btn-preed">UserBot Pre-Edition</a>
             </div>
         </div>
 
@@ -90,4 +90,9 @@
     <!-- Hier werden die JS files verlinkt um events der <body> section zu erlauben-->
 </body>
 
+<script>
+  document.getElementById('a-btn-preed').addEventListener('click', () => {
+    document.getElementById('a-btn-preed').innerHTML = "";
+  })
+</script>
 </html>
