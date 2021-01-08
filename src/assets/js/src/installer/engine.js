@@ -14,7 +14,7 @@ function checkUserBotIsInstalled() {
             throw new Error("Path does not exist");
         }
         getAllJarFiles(getConfigDownloadPath()).then(files => {
-            console.log(files.length)
+
         }).catch(err => {
             alert("Verzeichnis konnte nicht geöffnet werden: " + err.message);
         });
@@ -35,4 +35,12 @@ function getAllJarFiles(path) {
 function getConfigDownloadPath() {
     let user = os.userInfo().username;
     return config_data.download_path.replace("${USER}", user);
+}
+
+function checkUpdatables() {
+
+}
+
+function fetchUpdatabled() {
+
 }

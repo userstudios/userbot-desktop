@@ -1,5 +1,8 @@
 {
     "download_path": "C:\\Users\\${USER}\\AppData\\Roaming\\.minecraft\\LabyMod\\addons-1.12",
     "download_server": "http://download-userbot.netlify.app/latest/UserBot.jar",
-    "discord_invite_link": "http://discord.userbot.userstudios.org"
+    "discord_invite_link": "http://discord.userbot.userstudios.org",
+    "userbot_versions": "http://api.userbot.userstudios.org/userbot_versions.html",
+    "userbot_news": "http://api.userbot.userstudios.org/userbot_news.html",
+    "userbot_no_news_connection": "<h4>Verbindung konnte leider nicht aufgebaut werden :(<h4>"
 }
