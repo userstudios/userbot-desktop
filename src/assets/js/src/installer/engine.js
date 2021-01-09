@@ -1,7 +1,6 @@
-const inputInstallPath = document.getElementById('directorypath');
-const contractCheckbox = document.getElementById('contract');
-const installUpdateButton = document.getElementById('installUpdateButton');
-var config_data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json')));
+var inputInstallPath = document.getElementById('directorypath');
+var contractCheckbox = document.getElementById('contract');
+var installUpdateButton = document.getElementById('installUpdateButton');
 
 // Register events
 window.onload = function() {

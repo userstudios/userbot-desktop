@@ -1,5 +1,4 @@
-const buttonJoinDiscord = document.getElementById('joinDiscordButton');
-var config_data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json')));
+var buttonJoinDiscord = document.getElementById('joinDiscordButton');
 
 // Register event handlers
 window.onload = function() {
