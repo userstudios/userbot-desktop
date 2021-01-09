@@ -5,11 +5,16 @@
     <title>UserBot</title>
     <link rel="icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/settings/materialiconsround/48dp/2x/round_settings_black_48dp.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <link href="./assets/css/src/index.css" , rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- <link href="./css/animations-main.css" rel="stylesheet">
-    <link href="./css/style-main.css" rel="stylesheet"> -->
+
+    <!-- Hier werden die JS files verlinkt um events der <body> section zu erlauben-->
+    <script defer src="./assets/js/src/index.js"></script>
+    <script defer src="./assets/js/src/installer/engine.js"></script>
+    <script defer src="./assets/js/src/userbot_select.js"></script>
+
     <!-- Hier muss der name-Tag eigentlich bleiben...!  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -63,7 +68,7 @@
 
         <div class="cards">
             <div>
-                <!-- Beispiel für eine URL-Eingabe-->
+                <!-- Eingabe des Verzeichnispfades von LabyMod -->
                 <h2>Verzeichnispfad Labymod 1.12.2 Addons</h2>
 
                 <div class="help">
@@ -79,20 +84,11 @@
 
         <div class="nav-wrapper">
             <div class="nav" id="userbot_selection">
-                <a style="color: var(--accent);">UserBot Hauptversion</a>
-                <a style="color: var(--dark); cursor: pointer;" id="a-btn-preed">UserBot Pre-Edition</a>
+                Lädt...
             </div>
         </div>
 
     </main>
-    <script src="./assets/js/src/index.js"></script>
-    <script src="./assets/js/src/installer/engine.js"></script>
-    <!-- Hier werden die JS files verlinkt um events der <body> section zu erlauben-->
 </body>
 
-<script>
-  document.getElementById('a-btn-preed').addEventListener('click', () => {
-    document.getElementById('a-btn-preed').innerHTML = "";
-  })
-</script>
 </html>
