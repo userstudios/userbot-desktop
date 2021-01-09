@@ -1,6 +1,6 @@
 const className = config_data.userbot_selection_class_name;
 var userbotSelection = document.getElementById('userbot_selection');
-var selected_userbot = null;
+var selected_userbot_id = null;
 var latest_userbot_catalogue = null;
 
 fetch(config_data.userbot_versions)
@@ -42,14 +42,7 @@ function selectUserBotOnClick() {
             elements[i].setAttribute('style', config_data.userbot_unselected_style);
         }
     }
-    let disPlayName = configGetDisPlayNameById(element_id);
-    if (disPlayName != null) {
-        alert("Du hast nun " + disPlayName + " ausgewählt.")
-    } else {
-        alert("Es ist ein Fehler aufgetreten. Bitte starte das Programm neu!")
-    }
-
-    selected_userbot = element_id;
+    selected_userbot_id = element_id;
 }
 
 function configGetDisPlayNameById(id) {
@@ -60,3 +53,10 @@ function configGetDisPlayNameById(id) {
     }
     return null;
 }
+
+function configGetDownLoadUrlById() {
+
+}
+
+module.exports.selected_userbot_id = selected_userbot_id;
+module.exports.latest_userbot_catalogue = latest_userbot_catalogue;

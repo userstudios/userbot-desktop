@@ -1,0 +1,1 @@
+var downloadPath = document.getElementById('directorypath');
