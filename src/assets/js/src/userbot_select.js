@@ -1,4 +1,4 @@
-const className = config_data.userbot_selection_class_name;
+const userBotVersionClassName = config_data.userbot_selection_class_name;
 var userbotSelection = document.getElementById('userbot_selection');
 var selected_userbot_id = null;
 var latest_userbot_catalogue = null;
@@ -12,20 +12,19 @@ fetch(config_data.userbot_versions)
     }).catch(err => { userbot_selection.innerHTML = config_data.userbot_no_versions_connection + " " + err });
 
 function printSelectionInHtml(json) {
-    let className = config_data.userbot_selection_class_name;
     let divInhold = "";
 
     for (let i = 0; i < json.userbot_ids.length; i++) {
-        divInhold += "<a style=\"color: var(--dark); cursor: pointer;\" class=\"" + className + "\" id=\"" + json.userbot_ids[i] + "\">" + json.userbot_display_names[i] + "</a>";
+        divInhold += "<a style=\"color: var(--dark); cursor: pointer;\" class=\"" + userBotVersionClassName + "\" id=\"" + json.userbot_ids[i] + "\">" + json.userbot_display_names[i] + "</a>";
     }
 
     userbotSelection.innerHTML = divInhold;
 
-    registerButtonClickEvents(className);
+    registerButtonClickEvents(userBotVersionClassName);
 }
 
-function registerButtonClickEvents(className) {
-    let elements = document.getElementsByClassName(className);
+function registerButtonClickEvents(userBotVersionClassName) {
+    let elements = document.getElementsByClassName(userBotVersionClassName);
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', selectUserBotOnClick);
     }
@@ -33,7 +32,7 @@ function registerButtonClickEvents(className) {
 
 function selectUserBotOnClick() {
     let element_id = window.event.target.id;
-    let elements = document.getElementsByClassName(className);
+    let elements = document.getElementsByClassName(userBotVersionClassName);
     for (let i = 0; i < elements.length; i++) {
         if (elements[i].id != element_id) {
             elements[i].setAttribute('style', config_data.userbot_selected_style);
@@ -57,6 +56,3 @@ function configGetDisPlayNameById(id) {
 function configGetDownLoadUrlById() {
 
 }
-
-module.exports.selected_userbot_id = selected_userbot_id;
-module.exports.latest_userbot_catalogue = latest_userbot_catalogue;

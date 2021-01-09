@@ -12,8 +12,9 @@
 
     <!-- Hier werden die JS files verlinkt um events der <body> section zu erlauben-->
     <script defer src="./assets/js/src/index.js"></script>
-    <script defer src="./assets/js/src/installer/engine.js"></script>
     <script defer src="./assets/js/src/userbot_select.js"></script>
+    <script defer src="./assets/js/src/installer/engine.js"></script>
+    <script defer src="./assets/js/src/download_path.js"></script>
 
     <!-- Hier muss der name-Tag eigentlich bleiben...!  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +76,7 @@
                     <a class="material-icons">help</a>
                     <p>Test-Hilfsnachricht!</p>
                 </div>
-                <div class="input-wrapper"><input type="file" id="directorypath" webkitdirectory></div>
+                <div class="input-wrapper"><input type="text" id="directorypath"></div>
             </div>
         </div>
 
