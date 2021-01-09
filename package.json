@@ -13,14 +13,13 @@
     },
     "keywords": [],
     "author": {
-        "name": "IchBinHanz",
-        "email": "ichbinhanz88@gmail.com"
+        "name": "IchBinHanz & AEugh",
+        "email": ""
     },
     "config": {
         "forge": {
             "packagerConfig": {},
-            "makers": [
-                {
+            "makers": [{
                     "name": "@electron-forge/maker-squirrel",
                     "config": {
                         "name": "userbot_desktop_app"

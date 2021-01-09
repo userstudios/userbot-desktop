@@ -1,4 +1,3 @@
-var userbot_select = require('../userbot_select.js');
 var inputInstallPath = document.getElementById('directorypath');
 var contractCheckbox = document.getElementById('contract');
 var installUpdateButton = document.getElementById('installUpdateButton');
@@ -9,7 +8,7 @@ window.onload = function() {
 };
 
 function installUpdateClickedHandler() {
-    if (userbot_select.selected_userbot_id != null) {
+    if (selected_userbot_id != null) {
         checkUserBotIsInstalled();
     } else {
         alert("Bitte wähle das UserBot aus, das installiert oder updated werden soll.");
