@@ -3,9 +3,7 @@ var contractCheckbox = document.getElementById('contract');
 var installUpdateButton = document.getElementById('installUpdateButton');
 
 // Register events
-window.onload = function() {
-    installUpdateButton.addEventListener('click', installUpdateClickedHandler);
-};
+installUpdateButton.addEventListener('click', installUpdateClickedHandler);
 
 function installUpdateClickedHandler() {
     if (selected_userbot_id != null) {
