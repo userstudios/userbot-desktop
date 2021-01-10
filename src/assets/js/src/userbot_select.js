@@ -34,14 +34,18 @@ function selectUserBotOnClick() {
     let element_id = window.event.target.id;
     let elements = document.getElementsByClassName(userBotVersionClassName);
     for (let i = 0; i < elements.length; i++) {
-        if (elements[i].id != element_id) {
-            elements[i].setAttribute('style', config_data.userbot_selected_style);
-
+        if (elements[i].id == element_id) {
+            if (element_id == selected_userbot_id) {
+                elements[i].setAttribute('style', config_data.userbot_unselected_style);
+                selected_userbot_id = null;
+            } else {
+                elements[i].setAttribute('style', config_data.userbot_selected_style);
+                selected_userbot_id = element_id;
+            }
         } else {
             elements[i].setAttribute('style', config_data.userbot_unselected_style);
         }
     }
-    selected_userbot_id = element_id;
 }
 
 function configGetDisPlayNameById(id) {

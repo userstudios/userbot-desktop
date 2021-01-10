@@ -7,6 +7,6 @@
     "userbot_no_news_connection": "<h4>Verbindung konnte leider nicht aufgebaut werden :(<h4>",
     "userbot_no_versions_connection": "<a style=\"color: black;\">Verbindung konnte leider nicht aufgebaut werden :(</a>",
     "userbot_selection_class_name": "userbot_version",
-    "userbot_selected_style": "color: var(--dark); cursor: pointer;",
-    "userbot_unselected_style": "color: var(--accent); cursor: pointer;"
+    "userbot_selected_style": "color: var(--accent); cursor: pointer;",
+    "userbot_unselected_style": "color: var(--dark); cursor: pointer;"
 }
