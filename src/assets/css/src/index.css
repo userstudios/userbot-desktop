@@ -128,7 +128,8 @@ main>h3 {
     position: sticky;
     position: -webkit-sticky;
     top: 80px;
-    background-color: #eee;
+    box-shadow: var(--shadow);
+    background-color: var(--card);
     border-radius: .5em;
     -webkit-border-radius: .5em;
     -moz-border-radius: .5em;
