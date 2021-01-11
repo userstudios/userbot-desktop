@@ -1,7 +1,7 @@
 const { dialog, BrowserWindow } = require('electron').remote;
 var downloadPath = document.getElementById('directorypath');
 
-downloadPath.setAttribute('value', config_data.download_path);
+downloadPath.setAttribute('value', getConfigDownloadPath());
 
 // Register events
 downloadPath.addEventListener('click', directoryPathOnClickHandler)
@@ -12,9 +12,16 @@ function directoryPathOnClickHandler() {
     dialog.showOpenDialog(createNewWindow(), {
         properties: ['openDirectory']
     }).then(data => {
-        downloadPath.setAttribute('value', data.filePaths);
-        config_data.download_path = data.filePaths;
-        fs.writeFileSync(path.join(__dirname + "data/config.json"), JSON.stringify(config_data));
+        if (data.filePaths.length > 0) {
+            downloadPath.setAttribute('value', data.filePaths[0]);
+            config_data.download_path = data.filePaths[0];
+            fs.writeFileSync(path.join(__dirname, "data/config.json"), JSON.stringify(config_data, null, 4));
+        } else {
+            alert("Dateienpfad konnte nicht ausgewählt werden.");
+            config_data.download_path = config_data.default_download_path;
+            fs.writeFileSync(path.join(__dirname, "data/config.json"), JSON.stringify(config_data, null, 4));
+            downloadPath.setAttribute('value', getConfigDownloadPath());
+        }
     });
 }
 
