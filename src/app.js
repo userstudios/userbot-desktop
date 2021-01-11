@@ -1,4 +1,5 @@
 const fs = require('fs');
+const request = require('request');
 const fetch = require('node-fetch');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
@@ -10,24 +11,26 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 let win;
 const createWindow = () => {
-    updateAppIcon();
-    // Create the browser window.
-    win = new BrowserWindow({
-        width: 500,
-        height: 800,
-        webPreferences: {
-            nodeIntegration: true,
-            enableRemoteModule: true
-        },
-        icon: path.join(__dirname, 'app.ico'),
-        resizable: false
-    });
+    updateAppIcon().finally(() => {
+        // Create the browser window.
+        win = new BrowserWindow({
+            width: 500,
+            height: 800,
+            webPreferences: {
+                nodeIntegration: true,
+                enableRemoteModule: true,
+                contextIsolation: false
+            },
+            icon: path.join(__dirname, 'app.ico'),
+            resizable: false
+        });
 
-    // and load the index.html of the app.
-    win.loadFile(path.join(__dirname, 'index.html'));
-    win.removeMenu()
-        // Open the DevTools.
-    win.webContents.openDevTools();
+        // and load the index.html of the app.
+        win.loadFile(path.join(__dirname, 'index.html'));
+        win.removeMenu()
+            // Open the DevTools.
+        win.webContents.openDevTools();
+    });
 };
 
 
@@ -53,10 +56,29 @@ app.on('activate', () => {
     }
 });
 
-async function updateAppIcon() {
-    const response = await fetch(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json'))).userbot_desktop_icon_url);
-    const buffer = await response.buffer();
-    fs.writeFile(`./src/app.ico`, buffer, {});
+function updateAppIcon() {
+    return new Promise(function(resolve, reject) {
+        download(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json'))).userbot_desktop_icon_url, path.join(__dirname, "app.ico"), (res) => {
+            resolve(res);
+        }, (rej) => {
+            reject(rej)
+        });
+    });
 }
+
+const download = (url, path, resolve, reject) => {
+    request.head(url, (err, res, body) => {
+        if (err) {
+            reject(err);
+        } else {
+            request(url)
+                .pipe(fs.createWriteStream(path))
+                .on('close', () => {
+                    resolve(res);
+                });
+        }
+    });
+}
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
