@@ -57,6 +57,29 @@ function configGetDisPlayNameById(id) {
     return null;
 }
 
-function configGetDownLoadUrlById() {
+function configGetManiFestIdById(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_jar_manifest_attributes[i];
+        }
+    }
+    return null;
+}
 
+function configGetDownLoadUrlById(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_download_links[i];
+        }
+    }
+    return null;
+}
+
+function configGetVersionById(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_display_names[i];
+        }
+    }
+    return null;
 }

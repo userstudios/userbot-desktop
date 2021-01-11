@@ -32,9 +32,10 @@ function createNewWindow() {
         height: 1000,
         show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
         },
-        icon: "http://api.userbot.userstudios.org/app.ico",
+        icon: path.join(__dirname, 'app.ico'),
         resizable: false
     });
 }
