@@ -18,28 +18,23 @@ async function checkUserBotIsInstalled() {
         if (!fs.existsSync(getConfigDownloadPath())) {
             throw new Error("Path does not exist");
         }
-        getAllJarFiles(getConfigDownloadPath()).then(files => {
-            console.log("before " + files.length)
+        getAllJarFiles(getConfigDownloadPath()).then(async(files) => {
             let array = [];
             for (let i = 0; i < files.length; i++) {
-                jarfile.fetchJarAtPath(files[i], function(err, jar) {
-                    console.log(files[i])
-                    if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != null) {
-                        array.push(files[i]);
-                    }
-                });
+                let jar = await fetchJar(files[i]);
+                if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != null) {
+                    array.push(files[i]);
+                }
             }
-            console.log("after " + array.length)
             let downLoadPath = getConfigDownloadPath();
             if (array.length == 0) {
                 installJarToPath(downLoadPath);
             } else if (array.length == 1) {
-                jarfile.fetchJarAtPath(array[0], function(err, jar) {
-                    if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != configGetVersionById(selected_userbot_id)) {
-                        deleteFiles(array);
-                        installJarToPath(downLoadPath);
-                    }
-                });
+                let jar = await fetchJar(array[0]);
+                if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != configGetVersionById(selected_userbot_id)) {
+                    deleteFiles(array);
+                    installJarToPath(downLoadPath);
+                }
             } else if (array.length > 1) {
                 deleteFiles(array);
                 installJarToPath(downLoadPath);
@@ -50,6 +45,18 @@ async function checkUserBotIsInstalled() {
     } catch (err) {
         alert("Verzeichnis konnte nicht geöffnet werden: " + err.message);
     }
+}
+
+async function fetchJar(path) {
+    return new Promise((resolve, reject) => {
+        jarfile.fetchJarAtPath(path, function(err, jar) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(jar);
+            }
+        });
+    });
 }
 
 function getAllJarFiles(path) {
