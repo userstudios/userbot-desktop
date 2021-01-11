@@ -1,3 +1,5 @@
+const fs = require('fs');
+const fetch = require('node-fetch');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
@@ -6,13 +8,16 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
     app.quit();
 }
 
+let win;
 const createWindow = () => {
+    updateAppIcon();
     // Create the browser window.
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 500,
         height: 800,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            enableRemoteModule: true
         },
         icon: path.join(__dirname, 'app.ico'),
         resizable: false
@@ -48,5 +53,10 @@ app.on('activate', () => {
     }
 });
 
+async function updateAppIcon() {
+    const response = await fetch(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json'))).userbot_desktop_icon_url);
+    const buffer = await response.buffer();
+    fs.writeFile(`./src/app.ico`, buffer, {});
+}
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
