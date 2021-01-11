@@ -4,7 +4,6 @@ const config_data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config
 const os = require('os');
 const http = require('http');
 const open = require('open');
-const fileDialog = require('file-dialog');
 const fetch = require('node-fetch');
 const jarfile = require("jarfile");
 const glob = require("glob");

@@ -6,5 +6,5 @@ window.onload = function() {
 }
 
 function openDiscordHandler() {
-    open(config_data.discord_invite_link);
+    window.open(config_data.discord_invite_link, 'UserBot Discord', 'nodeIntegration=no');
 }
