@@ -81,10 +81,14 @@ async function selectedAddonVersionNotCurrent(addonFile) {
 async function getJarsWithListedAddonSignature(files) {
     let array = [];
     for (let i = 0; i < files.length; i++) {
-        let jar = await fetchJar(files[i]);
-        if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != null) {
-            array.push(files[i]);
-        }
+        try {
+            let jar = await fetchJar(files[i]);
+            if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != null) {
+
+                array.push(files[i]);
+
+            }
+        } catch (err) {}
     }
     return array;
 }
