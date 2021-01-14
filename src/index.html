@@ -6,6 +6,7 @@
     <link rel="icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/settings/materialiconsround/48dp/2x/round_settings_black_48dp.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="./assets/css/src/index.css" , rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,7 +26,7 @@
 <body>
     <header>
         <h1>UserBot Installer/Updater</h1>
-        <button id="installUpdateButton">Install/Update</button>
+        <button id="installUpdateButton">Installiern/Updaten</button>
     </header>
     <main>
 
@@ -49,39 +50,30 @@
             <div>
 
                 <!-- Beispiel für einen on/off Switch -->
-                <label class="switch" id="contract">
-                    <input type="checkbox" />
+                <label class="switch">
+                    <input type="checkbox" id="contract"/>
                     <span class="slider"></span>
                 </label>
 
                 <h2>Datenschutz erklärung & AGB zustimmung</h2>
 
-                <div class="help">
-                    <a class="material-icons">help</a>
-                    <p>Test-Hilfsnachricht!</p>
-                </div>
             </div>
         </div>
 
         <!-- Neue Kategorie -->
 
-        <h3>Addon Verzeichnis</h3>
+        <h3 id="verzeichnis_pfad_header">Verzeichnis</h3>
 
         <div class="cards">
             <div>
                 <!-- Eingabe des Verzeichnispfades von -->
-                <h2>Verzeichnispfad Labymod 1.12.2 Addons</h2>
-
-                <div class="help">
-                    <a class="material-icons">help</a>
-                    <p>Test-Hilfsnachricht!</p>
-                </div>
-                <div class="input-wrapper"><input type="text" id="directorypath"></div>
+                <h2 id="verzeichnis_pfad_eingabe">Verzeichnispfad</h2>
+                <div class="input-wrapper"><input type="text" id="directorypath" /></div>
             </div>
         </div>
 
         <!-- Auswahl der jeweiligen UserBots -->
-        <h3>Addon Auswahl</h3>
+        <h3 id="auswahl_header">Auswahl</h3>
 
         <div class="nav-wrapper">
             <div class="nav" id="userbot_selection">

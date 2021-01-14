@@ -6,8 +6,6 @@ downloadPath.setAttribute('value', getConfigDownloadPath());
 // Register events
 downloadPath.addEventListener('click', directoryPathOnClickHandler)
 
-let main_window;
-
 function directoryPathOnClickHandler() {
     dialog.showOpenDialog(createNewWindow(), {
         properties: ['openDirectory']
@@ -26,7 +24,6 @@ function directoryPathOnClickHandler() {
 }
 
 function createNewWindow() {
-    console.log(path.join(__dirname, 'app.ico'));
     return new BrowserWindow({
         width: 1000,
         height: 1000,

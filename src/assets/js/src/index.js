@@ -7,3 +7,5 @@ const open = require('open');
 const fetch = require('node-fetch');
 const jarfile = require("jarfile");
 const glob = require("glob");
+const trash = require("trash");
+const request = require("request");
