@@ -130,7 +130,7 @@ function configGetDownLoadUrlById(id) {
 function configGetVersionById(id) {
     for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
         if (latest_userbot_catalogue.userbot_ids[i] == id) {
-            return latest_userbot_catalogue.userbot_display_names[i];
+            return latest_userbot_catalogue.userbot_versions[i];
         }
     }
     return null;

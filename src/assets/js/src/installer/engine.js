@@ -35,12 +35,14 @@ async function checkUserBotIsInstalled() {
             await resetInstallUpdateLoading();
             alert("Installation abgeschlossen.");
         } else if (array.length == 1) {
-            let deleteFilesBool = selectedAddonVersionNotCurrent(array[0]);
-            if (deleteFilesBool) {
+            if (await selectedAddonVersionNotCurrent(array[0])) {
                 await moveFilesToTrashBin(array);
                 await installJarToPath();
                 await resetInstallUpdateLoading();
                 alert("Update abgeschlossen.");
+            } else {
+                await resetInstallUpdateLoading();
+                alert("File bereits auf dem neusten stand.");
             }
         } else if (array.length > 1) {
             await moveFilesToTrashBin(array);
@@ -62,9 +64,7 @@ async function resetInstallUpdateLoading() {
     return new Promise((resolve, reject) => {
         installUpdateButton.innerHTML = config_data.userbot_install_update_inhold_button_default;
         installUpdateButton.disabled = false;
-        console.log("start")
         setTimeout(() => {
-            console.log("resolve")
             resolve();
         }, 100);
     });
@@ -73,6 +73,7 @@ async function resetInstallUpdateLoading() {
 async function selectedAddonVersionNotCurrent(addonFile) {
     let jar = await fetchJar(addonFile);
     if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != configGetVersionById(selected_userbot_id)) {
+
         return true;
     }
     return false;
