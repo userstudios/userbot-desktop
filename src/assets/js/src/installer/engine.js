@@ -84,9 +84,7 @@ async function getJarsWithListedAddonSignature(files) {
         try {
             let jar = await fetchJar(files[i]);
             if (jar._manifest.main[configGetManiFestIdById(selected_userbot_id)] != null) {
-
                 array.push(files[i]);
-
             }
         } catch (err) {}
     }
@@ -144,7 +142,7 @@ async function installJarToPath() {
     try {
         await download(downloadPath, arrayNames, fileEndings, arrayDownloadUrls);
     } catch (err) {
-        alert("Ein fehler ist beim Download aufgetreten.");
+        throw new Error("Could not download the file.");
         console.log(err);
     }
 }
