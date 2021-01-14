@@ -1,5 +1,8 @@
 const userBotVersionClassName = config_data.userbot_selection_class_name;
 var userbotSelection = document.getElementById('userbot_selection');
+var userbotAuswahlHeader = document.getElementById('auswahl_header');
+var userbotVerzeichnisHeader = document.getElementById('verzeichnis_pfad_header');
+var userbotVerzeichnisEingabe = document.getElementById('verzeichnis_pfad_eingabe');
 var selected_userbot_id = null;
 var latest_userbot_catalogue = null;
 
@@ -8,14 +11,14 @@ fetch(config_data.userbot_versions)
     .then(body => {
         latest_userbot_catalogue = body;
         //<a style="color: var(--dark); cursor: pointer;" class="userbot_version">UserBot Hauptversion</a>
-        printSelectionInHtml(body)
+        printSelectionInHtml();
     }).catch(err => { userbot_selection.innerHTML = config_data.userbot_no_versions_connection + " " + err });
 
-function printSelectionInHtml(json) {
+function printSelectionInHtml() {
     let divInhold = "";
 
-    for (let i = 0; i < json.userbot_ids.length; i++) {
-        divInhold += "<a style=\"color: var(--dark); cursor: pointer;\" class=\"" + userBotVersionClassName + "\" id=\"" + json.userbot_ids[i] + "\">" + json.userbot_display_names[i] + "</a>";
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        divInhold += "<a style=\"color: var(--dark); cursor: pointer;\" class=\"" + userBotVersionClassName + "\" id=\"" + latest_userbot_catalogue.userbot_ids[i] + "\">" + latest_userbot_catalogue.userbot_display_names[i] + "</a>";
     }
 
     userbotSelection.innerHTML = divInhold;
@@ -46,12 +49,61 @@ function selectUserBotOnClick() {
             elements[i].setAttribute('style', config_data.userbot_unselected_style);
         }
     }
+    printInformationInHtml();
+}
+
+function printInformationInHtml() {
+    if (selected_userbot_id != null) {
+        userbotAuswahlHeader.innerHTML = configGetAuswahlHeaderById(selected_userbot_id);
+        userbotVerzeichnisHeader.innerHTML = configGetVerzeichNisHeaderById(selected_userbot_id);
+        userbotVerzeichnisEingabe.innerHTML = configGetVerzeichNisEingabeById(selected_userbot_id);
+    } else {
+        userbotAuswahlHeader.innerHTML = config_data.auswahl_header;
+        userbotVerzeichnisHeader.innerHTML = config_data.verzeichnis_pfad_header;
+        userbotVerzeichnisEingabe.innerHTML = config_data.verzeichnis_pfad_eingabe;
+    }
+}
+
+function configGetVerzeichNisHeaderById(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_verzeichnis_header[i];
+        }
+    }
+    return null;
+}
+
+function configGetAuswahlHeaderById(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_auswahl_header[i];
+        }
+    }
+    return null;
+}
+
+function configGetVerzeichNisEingabeById(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_verzeichnis_eingabe[i];
+        }
+    }
+    return null;
 }
 
 function configGetDisPlayNameById(id) {
     for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
         if (latest_userbot_catalogue.userbot_ids[i] == id) {
             return latest_userbot_catalogue.userbot_display_names[i];
+        }
+    }
+    return null;
+}
+
+function configGetFileEnding(id) {
+    for (let i = 0; i < latest_userbot_catalogue.userbot_ids.length; i++) {
+        if (latest_userbot_catalogue.userbot_ids[i] == id) {
+            return latest_userbot_catalogue.userbot_file_endings[i];
         }
     }
     return null;
