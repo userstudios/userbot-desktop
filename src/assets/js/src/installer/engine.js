@@ -1,3 +1,5 @@
+const { watchFile } = require("fs");
+
 var inputInstallPath = document.getElementById('directorypath');
 var contractCheckbox = document.getElementById('contract');
 var installUpdateButton = document.getElementById('installUpdateButton');
@@ -21,6 +23,7 @@ async function checkUserBotIsInstalled() {
             throw new Error("Path does not exist");
         }
         if (!contractCheckbox.checked) {
+            resetInstallUpdateLoading();
             alert("Du musst unserem AGB und Datenschutz erklärung zustimmmen um unsere Produkte benutzen zu können.");
             return;
         }
@@ -28,36 +31,43 @@ async function checkUserBotIsInstalled() {
         let array = await getJarsWithListedAddonSignature(files);
 
         if (array.length == 0) {
-            installJarToPath();
-            resetInstallUpdateLoading();
+            await installJarToPath();
+            await resetInstallUpdateLoading();
             alert("Installation abgeschlossen.");
         } else if (array.length == 1) {
             let deleteFilesBool = selectedAddonVersionNotCurrent(array[0]);
             if (deleteFilesBool) {
                 await moveFilesToTrashBin(array);
-                installJarToPath();
-                resetInstallUpdateLoading();
+                await installJarToPath();
+                await resetInstallUpdateLoading();
                 alert("Update abgeschlossen.");
             }
         } else if (array.length > 1) {
             await moveFilesToTrashBin(array);
-            installJarToPath();
-            resetInstallUpdateLoading();
+            await installJarToPath();
+            await resetInstallUpdateLoading();
             alert("Update abgeschlossen.");
         } else {
-            resetInstallUpdateLoading();
+            await resetInstallUpdateLoading();
             throw new Error("Array length is lower than 0");
         }
     } catch (err) {
-        resetInstallUpdateLoading();
+        await resetInstallUpdateLoading();
         alert("Ein Fehler ist aufgetreten.");
         console.log(err)
     }
 }
 
-function resetInstallUpdateLoading() {
-    installUpdateButton.innerHTML = config_data.userbot_install_update_inhold_button_default;
-    installUpdateButton.disabled = false;
+async function resetInstallUpdateLoading() {
+    return new Promise((resolve, reject) => {
+        installUpdateButton.innerHTML = config_data.userbot_install_update_inhold_button_default;
+        installUpdateButton.disabled = false;
+        console.log("start")
+        setTimeout(() => {
+            console.log("resolve")
+            resolve();
+        }, 100);
+    });
 }
 
 async function selectedAddonVersionNotCurrent(addonFile) {
@@ -137,8 +147,7 @@ async function installJarToPath() {
 
 async function download(path, name, fileEnding, url) {
     let pathAndName = path + "\\" + name + fileEnding;
-
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         request.head(url, (err, res, body) => {
             if (err) {
                 reject(err);
