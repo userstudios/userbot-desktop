@@ -42,7 +42,7 @@ async function checkUserBotIsInstalled() {
                 alert("Update abgeschlossen.");
             } else {
                 await resetInstallUpdateLoading();
-                alert("File bereits auf dem neusten stand.");
+                alert("Version ist bereits auf dem neusten Stand.");
             }
         } else if (array.length > 1) {
             await moveFilesToTrashBin(array);
