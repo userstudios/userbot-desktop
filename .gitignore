@@ -89,7 +89,7 @@ typings/
 out/
 
 # Electron-Packager
-userbot-desktop-win32-x64
+UBDesktop-win32-x64
 
 # WinInstaller
 windows_installer
