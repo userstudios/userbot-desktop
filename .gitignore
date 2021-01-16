@@ -87,3 +87,6 @@ typings/
 
 # Electron-Forge
 out/
+
+# Electron-Packager
+userbot-desktop-win32-x64

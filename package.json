@@ -50,6 +50,7 @@
         "jarfile": "^2.0.0",
         "node-fetch": "^2.6.1",
         "open": "^7.3.1",
+        "request": "^2.88.2",
         "trash": "^7.0.0"
     },
     "devDependencies": {
