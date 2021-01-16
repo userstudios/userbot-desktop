@@ -1,5 +1,3 @@
-const { watchFile } = require("fs");
-
 var inputInstallPath = document.getElementById('directorypath');
 var contractCheckbox = document.getElementById('contract');
 var installUpdateButton = document.getElementById('installUpdateButton');
@@ -146,24 +144,19 @@ async function installJarToPath() {
     try {
         await download(downloadPath, arrayNames, fileEndings, arrayDownloadUrls);
     } catch (err) {
-        throw new Error("Could not download the file.");
         console.log(err);
+        throw new Error("Could not download the file.");
     }
 }
 
 async function download(path, name, fileEnding, url) {
     let pathAndName = path + "\\" + name + fileEnding;
     return new Promise((resolve, reject) => {
-        request.head(url, (err, res, body) => {
-            if (err) {
-                reject(err);
-            } else {
-                request(url)
-                    .pipe(fs.createWriteStream(pathAndName))
-                    .on('close', () => {
-                        resolve(res);
-                    });
-            }
-        });
+        fetch(url).then((response) => {
+            if (!response.ok) throw new Error(`unexpected response ${response.statusText}`);
+            streamPipeline(response.body, fs.createWriteStream(pathAndName)).then(() => {
+                resolve(response);
+            });
+        }).catch((err) => { reject(err); });
     });
 }
