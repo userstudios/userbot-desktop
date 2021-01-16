@@ -19,14 +19,17 @@ async function checkUserBotIsInstalled() {
     try {
         installUpdateButton.disabled = true;
         installUpdateButton.innerHTML = config_data.userbot_install_update_inhold_button_loading;
-        if (!fs.existsSync(getConfigDownloadPath())) {
-            throw new Error("Path does not exist");
-        }
+
         if (!contractCheckbox.checked) {
             resetInstallUpdateLoading();
             alert("Du musst unserem AGB und Datenschutz erklärung zustimmmen um unsere Produkte benutzen zu können.");
             return;
         }
+
+        if (!fs.existsSync(getConfigDownloadPath())) {
+            throw new Error("Path does not exist");
+        }
+
         let files = await getAllJarFiles(getConfigDownloadPath());
         let array = await getJarsWithListedAddonSignature(files);
 
@@ -55,7 +58,7 @@ async function checkUserBotIsInstalled() {
         }
     } catch (err) {
         await resetInstallUpdateLoading();
-        alert("Ein Fehler ist aufgetreten.");
+        alert("Ein Fehler ist aufgetreten: " + err.message);
         console.log(err)
     }
 }
