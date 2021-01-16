@@ -32,7 +32,7 @@ function createNewWindow() {
             nodeIntegration: true,
             contextIsolation: false
         },
-        icon: path.join(__dirname, 'app.ico'),
+        icon: path.join(__dirname, 'data/app.ico'),
         resizable: false
     });
 }
