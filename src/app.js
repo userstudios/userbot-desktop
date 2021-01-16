@@ -21,7 +21,7 @@ const createWindow = () => {
                 enableRemoteModule: true,
                 contextIsolation: false
             },
-            icon: path.join(__dirname, 'data/app.ico'),
+            icon: path.join(__dirname, 'app.ico'),
             resizable: false
         });
 
@@ -58,7 +58,7 @@ app.on('activate', () => {
 
 function updateAppIcon() {
     return new Promise(function(resolve, reject) {
-        download(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json'))).userbot_desktop_icon_url, path.join(__dirname, "data/app.ico"), (res) => {
+        download(JSON.parse(fs.readFileSync(path.join(__dirname, 'data/config.json'))).userbot_desktop_icon_url, path.join(__dirname, "app.ico"), (res) => {
             resolve(res);
         }, (rej) => {
             reject(rej)
