@@ -90,3 +90,9 @@ out/
 
 # Electron-Packager
 userbot-desktop-win32-x64
+
+# WinInstaller
+windows_installer
+
+# Build_Installer
+build_installer.js

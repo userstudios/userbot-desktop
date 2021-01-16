@@ -45,6 +45,7 @@
     },
     "dependencies": {
         "electron-squirrel-startup": "^1.0.0",
+        "electron-wix-msi": "^3.0.6",
         "fs": "0.0.1-security",
         "glob": "^7.1.6",
         "jarfile": "^2.0.0",
