@@ -1,7 +1,7 @@
 {
     "name": "userbot-desktop-app",
     "productName": "userbot-desktop-app",
-    "version": "1.0",
+    "version": "1.0.0",
     "description": "My Electron application description",
     "main": "main-src/app.js",
     "scripts": {
