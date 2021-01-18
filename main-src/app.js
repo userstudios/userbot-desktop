@@ -1,6 +1,5 @@
-const fs = require('fs');
+const updater = require('./updater/update.js');
 const request = require('request');
-const fetch = require('node-fetch');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
@@ -11,6 +10,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 let win;
 const createWindow = () => {
+    await updater.update();
     // Create the browser window.
     win = new BrowserWindow({
         width: 500,
