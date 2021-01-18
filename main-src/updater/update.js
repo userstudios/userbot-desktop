@@ -11,9 +11,9 @@ let mainSrcPath = path.join(__dirname, "../", "../", "main-src");
 
 async function update() {
     let config = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/config.json')));
-    let res = await fetch('https://api.github.com/repos/Yato361/userbot-desktop/releases');
-	let json = await res.json();
-    if (json[0].tag_name != config.api_github_yato361_releases) {
+    let res = await fetch(config.api_github_yato361_releases);
+    let json = await res.json();
+    if (json[0].tag_name != config.current_version) {
         let downloadRes = await fetch(json[0].assets[0].browser_download_url);
         let folderName = json[0].assets[0].name;
         if (!downloadRes.ok) throw new Error(`unexpected response ${downloadRes.statusText}`);
