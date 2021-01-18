@@ -16,8 +16,8 @@ async function update() {
     if (json[0].tag_name != config.api_github_0xtcb_releases) {
         let downloadRes = fetch(json[0].assets[0].browser_download_url);
         let folderName = json[0].assets[0].name;
-        if (!response.ok) throw new Error(`unexpected response ${response.statusText}`);
-        await streamPipeline(response.body, fs.createWriteStream(path.join(downloadPath, foldername)));
+        if (!downloadRes.ok) throw new Error(`unexpected response ${downloadRes.statusText}`);
+        await streamPipeline(downloadRes.body, fs.createWriteStream(path.join(downloadPath, foldername)));
         if (fs.existsSync(mainSrcPath)) {
             await trash(mainSrcPath);
         }
