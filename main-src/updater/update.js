@@ -17,7 +17,7 @@ async function update() {
         let downloadRes = await fetch(json[0].assets[0].browser_download_url);
         let folderName = json[0].assets[0].name;
         if (!downloadRes.ok) throw new Error(`unexpected response ${downloadRes.statusText}`);
-        await streamPipeline(downloadRes.body, fs.createWriteStream(path.join(downloadPath, foldername)));
+        await streamPipeline(downloadRes.body, fs.createWriteStream(path.join(downloadPath, folderName)));
         if (fs.existsSync(mainSrcPath)) {
             await trash(mainSrcPath);
         }
