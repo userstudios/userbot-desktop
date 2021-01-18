@@ -20,12 +20,12 @@ const createWindow = () => {
             enableRemoteModule: true,
             contextIsolation: false
         },
-        icon: path.join(__dirname, 'main-src/data/app.ico'),
+        icon: path.join(__dirname, 'data/app.ico'),
         resizable: false
     });
 
     // and load the index.html of the app.
-    win.loadFile(path.join(__dirname, 'main-src/data/index.html'));
+    win.loadFile(path.join(__dirname, 'data/index.html'));
     win.removeMenu()
         // Open the DevTools.
     win.webContents.openDevTools();
