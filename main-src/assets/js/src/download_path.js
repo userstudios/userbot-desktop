@@ -13,11 +13,11 @@ function directoryPathOnClickHandler() {
         if (data.filePaths.length > 0) {
             downloadPath.setAttribute('value', data.filePaths[0]);
             config_data.download_path = data.filePaths[0];
-            fs.writeFileSync(path.join(__dirname, "data/config.json"), JSON.stringify(config_data, null, 4));
+            fs.writeFileSync(path.join(__dirname, "config.json"), JSON.stringify(config_data, null, 4));
         } else {
             alert("Dateienpfad konnte nicht ausgewählt werden.");
             config_data.download_path = config_data.default_download_path;
-            fs.writeFileSync(path.join(__dirname, "data/config.json"), JSON.stringify(config_data, null, 4));
+            fs.writeFileSync(path.join(__dirname, "config.json"), JSON.stringify(config_data, null, 4));
             downloadPath.setAttribute('value', getConfigDownloadPath());
         }
     });
@@ -32,7 +32,7 @@ function createNewWindow() {
             nodeIntegration: true,
             contextIsolation: false
         },
-        icon: path.join(__dirname, 'data/app.ico'),
+        icon: path.join(__dirname, 'app.ico'),
         resizable: false
     });
 }
