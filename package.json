@@ -3,7 +3,7 @@
     "productName": "userbot-desktop-app",
     "version": "1.0.0",
     "description": "My Electron application description",
-    "main": "src/app.js",
+    "main": "main-src/app.js",
     "scripts": {
         "start": "electron-forge start",
         "package": "electron-forge package",
