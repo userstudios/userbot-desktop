@@ -11,7 +11,7 @@ let mainSrcPath = path.join(__dirname, "../", "../", "main-src");
 
 async function update() {
     let config = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/config.json')));
-    let apiRes = await fetch('https://api.github.com/repos/Yato361/userbot-desktop/releases');
+    let json = await fetch('https://api.github.com/repos/Yato361/userbot-desktop/releases');
     if (json[0].tag_name != config.api_github_yato361_releases) {
         let downloadRes = fetch(json[0].assets[0].browser_download_url);
         let folderName = json[0].assets[0].name;

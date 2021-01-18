@@ -9,7 +9,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 }
 
 let win;
-const createWindow = () => {
+const createWindow = async() => {
     await updater.update();
     // Create the browser window.
     win = new BrowserWindow({
