@@ -14,7 +14,7 @@ async function update() {
     let res = await fetch('https://api.github.com/repos/0xtcb/userbot-desktop/releases');
 	let json = await res.json();
     if (json[0].tag_name != config.api_github_0xtcb_releases) {
-        let downloadRes = fetch(json[0].assets[0].browser_download_url);
+        let downloadRes = await fetch(json[0].assets[0].browser_download_url);
         let folderName = json[0].assets[0].name;
         if (!downloadRes.ok) throw new Error(`unexpected response ${downloadRes.statusText}`);
         await streamPipeline(downloadRes.body, fs.createWriteStream(path.join(downloadPath, foldername)));
