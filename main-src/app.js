@@ -21,24 +21,7 @@ const createWindow = async() => {
         autoHideMenuBar: true
     });
 
-    updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'))
-
-    let win = new BrowserWindow({
-        width: 500,
-        height: 800,
-        webPreferences: {
-            nodeIntegration: true,
-            enableRemoteModule: true,
-            contextIsolation: false
-        },
-        icon: path.join(__dirname, 'data/app.ico'),
-        resizable: false,
-        autoHideMenuBar: true
-    });
-
-    win.loadFile(path.join(__dirname, 'assets/html/src/index.html'));
-
-    win.webContents.openDevTools();
+    updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
 };
 
 app.on('ready', createWindow);
