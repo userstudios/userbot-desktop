@@ -1,4 +1,3 @@
-const autoUpdater = require('electron-updater');
 const request = require('request');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
@@ -7,9 +6,23 @@ if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-let win;
 const createWindow = async() => {
-    win = new BrowserWindow({
+    let updater = new BrowserWindow({
+        width: 200,
+        height: 200,
+        webPreferences: {
+            nodeIntegration: true,
+            enableRemoteModule: true,
+            contextIsolation: false
+        },
+        frame: false,
+        icon: path.join(__dirname, 'data/app.ico'),
+        resizable: false
+    });
+
+    updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'))
+
+    let win = new BrowserWindow({
         width: 500,
         height: 800,
         webPreferences: {
@@ -21,7 +34,7 @@ const createWindow = async() => {
         resizable: false
     });
 
-    win.loadFile(path.join(__dirname, 'data/index.html'));
+    win.loadFile(path.join(__dirname, 'assets/html/src/index.html'));
     win.removeMenu()
     win.webContents.openDevTools();
 };
