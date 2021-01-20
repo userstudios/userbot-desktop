@@ -17,7 +17,8 @@ const createWindow = async() => {
         },
         frame: false,
         icon: path.join(__dirname, 'data/app.ico'),
-        resizable: false
+        resizable: false,
+        autoHideMenuBar: true
     });
 
     updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'))
@@ -31,11 +32,12 @@ const createWindow = async() => {
             contextIsolation: false
         },
         icon: path.join(__dirname, 'data/app.ico'),
-        resizable: false
+        resizable: false,
+        autoHideMenuBar: true
     });
 
     win.loadFile(path.join(__dirname, 'assets/html/src/index.html'));
-    win.removeMenu()
+
     win.webContents.openDevTools();
 };
 
