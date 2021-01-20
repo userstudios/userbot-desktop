@@ -44,7 +44,9 @@
         }
     },
     "dependencies": {
+        "electron-builder": "^22.9.1",
         "electron-squirrel-startup": "^1.0.0",
+        "electron-updater": "^4.3.5",
         "electron-wix-msi": "^3.0.6",
         "exe-icon-extractor": "^1.0.8",
         "extract-zip": "^2.0.1",
