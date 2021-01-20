@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const config_data = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json')));
+const config_data = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../data/config.json')));
 const os = require('os');
 const http = require('http');
 const open = require('open');
