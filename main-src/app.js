@@ -1,4 +1,4 @@
-const updater = require('./updater/update.js');
+const autoUpdater = require('electron-updater');
 const request = require('request');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
@@ -10,7 +10,6 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 let win;
 const createWindow = async() => {
-    await updater.update();
     // Create the browser window.
     win = new BrowserWindow({
         width: 500,
