@@ -1,8 +1,8 @@
 {
     "name": "userbot-desktop-app",
     "productName": "userbot-desktop-app",
+    "description": "A desktop app which is provided by UserStudios",
     "version": "1.0.0",
-    "description": "My Electron application description",
     "main": "main-src/app.js",
     "scripts": {
         "start": "electron-forge start",
@@ -13,8 +13,7 @@
     },
     "keywords": [],
     "author": {
-        "name": "AEugh",
-        "email": ""
+        "name": "AEugh"
     },
     "config": {
         "forge": {
@@ -45,6 +44,7 @@
     },
     "dependencies": {
         "electron-builder": "^22.9.1",
+        "electron-log": "^4.3.1",
         "electron-squirrel-startup": "^1.0.0",
         "electron-updater": "^4.3.5",
         "electron-wix-msi": "^3.0.6",
@@ -65,5 +65,19 @@
         "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
         "@electron-forge/maker-zip": "^6.0.0-beta.54",
         "electron": "11.1.1"
+    },
+    "build": {
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "0xtcb",
+                "repo": "userbot-desktop"
+            }
+        ],
+        "appId": "com.github.0xtcb.userbot-desktop",
+        "target": [
+            "zip",
+            "dmg"
+        ]
     }
 }

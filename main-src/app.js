@@ -8,8 +8,8 @@ if (require('electron-squirrel-startup')) {
 
 const createWindow = async() => {
     let updater = new BrowserWindow({
-        width: 200,
-        height: 200,
+        width: 1000,
+        height: 1000,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
@@ -20,7 +20,7 @@ const createWindow = async() => {
         resizable: false,
         autoHideMenuBar: true
     });
-
+    updater.webContents.openDevTools();
     updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
 };
 

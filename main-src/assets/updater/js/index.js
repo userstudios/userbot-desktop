@@ -1,5 +1,12 @@
-const path = require('path');
-const { BrowserWindow } = require('electron').remote;
+try {
+    const { autoUpdater } = require('electron-updater');
+    const path = require('path');
+    const { BrowserWindow } = require('electron').remote;
+} catch (error) {
+    console.log(error)
+}
+
+alert('App starting...');
 
 function createMainAppAndCloseUpdater() {
     let win = new BrowserWindow({
