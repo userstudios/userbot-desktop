@@ -1,10 +1,5 @@
-try {
-    const { autoUpdater } = require('electron-updater');
-    const path = require('path');
-    const { BrowserWindow } = require('electron').remote;
-} catch (error) {
-    console.log(error)
-}
+const path = require('path');
+const { BrowserWindow } = require('electron').remote;
 
 alert('App starting...');
 
