@@ -1,5 +1,5 @@
 const request = require('request');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 if (require('electron-squirrel-startup')) {
@@ -8,8 +8,8 @@ if (require('electron-squirrel-startup')) {
 
 const createWindow = async() => {
     let updater = new BrowserWindow({
-        width: 1000,
-        height: 1000,
+        width: 200,
+        height: 200,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
@@ -20,7 +20,6 @@ const createWindow = async() => {
         resizable: false,
         autoHideMenuBar: true
     });
-    updater.webContents.openDevTools();
     updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
 };
 
