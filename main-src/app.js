@@ -73,6 +73,7 @@ autoUpdater.on('error', (err) => {
 })
 autoUpdater.on('download-progress', (progressObj) => {
     updater.webContents.send("loading_bar", progressObj.percent);
+    updater.webContents.send("loading_status", "Downloading...");
     //TODO: print progress on html
 })
 autoUpdater.on('update-downloaded', (info) => {
