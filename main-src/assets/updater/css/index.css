@@ -1,3 +1,7 @@
+:root {
+    --percentile: 33%;
+}
+
 body {
     background-color: black;
     font-family: Lato, sans-serif;
@@ -22,7 +26,7 @@ body {
     content: "";
     display: block;
     position: absolute;
-    width: 68%;
+    width: var(--percentile);
     height: 100%;
     background-color: whitesmoke;
     box-shadow: 0px 0px 15px 0px whitesmoke;
