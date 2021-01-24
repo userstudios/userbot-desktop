@@ -3,6 +3,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { autoUpdater } = require('electron-updater');
 const { create } = require('electron-log');
+const { argv } = require('process');
 
 if (require('electron-squirrel-startup')) {
     app.quit();
@@ -55,11 +56,11 @@ app.on('window-all-closed', () => {
 });
 
 autoUpdater.on('checking-for-update', () => {
-    console.log("Checking for updates...");
+    updater.webContents.send("loading_status", "Checking for updates...");
     //TODO: notify user
 })
 autoUpdater.on('update-available', (info) => {
-    updater.webContents.send("loading_status", err);
+    updater.webContents.send("loading_status", info);
     //TODO: notify user
 })
 autoUpdater.on('update-not-available', (info) => {
@@ -77,4 +78,8 @@ autoUpdater.on('download-progress', (progressObj) => {
 autoUpdater.on('update-downloaded', (info) => {
     updater.webContents.send("loading_status", info);
     autoUpdater.quitAndInstall(false, false);
+});
+
+ipcMain.on('log', (event, arg) => {
+    console.log(arg);
 });

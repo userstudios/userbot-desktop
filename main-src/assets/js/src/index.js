@@ -12,3 +12,8 @@ const request = require("request");
 const { pipeline } = require('stream');
 const { promisify } = require('util');
 const streamPipeline = promisify(pipeline);
+const ipcRenderer = require('electron').ipcRenderer;
+
+function log(msg) {
+    ipcRenderer.send('log', msg);
+}
