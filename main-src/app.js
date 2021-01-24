@@ -9,6 +9,7 @@ if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
+var start_main = false;
 var updater;
 async function checkForUpdateAndCreateWindow() {
     updater = new BrowserWindow({
@@ -25,6 +26,12 @@ async function checkForUpdateAndCreateWindow() {
         autoHideMenuBar: true
     });
     await updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
+    updater.on('close', () => {
+        if (start_main) {
+            createWindow();
+            updater = null;
+        }
+    });
     autoUpdater.checkForUpdatesAndNotify();
 }
 async function createWindow() {
@@ -61,8 +68,8 @@ autoUpdater.on('update-available', (info) => {
 })
 autoUpdater.on('update-not-available', (info) => {
     updater.webContents.send("loading_status", "No update avaible");
+    start_main = true;
     updater.close();
-    createWindow();
 })
 autoUpdater.on('error', (err) => {
     updater.webContents.send("loading_status", err);
