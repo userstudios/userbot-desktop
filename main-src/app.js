@@ -8,8 +8,9 @@ if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
+var updater;
 async function checkForUpdateAndCreateWindow() {
-    let updater = new BrowserWindow({
+    updater = new BrowserWindow({
         width: 200,
         height: 200,
         webPreferences: {
@@ -35,12 +36,12 @@ async function createWindow() {
             enableRemoteModule: true,
             contextIsolation: false
         },
-        icon: path.join(__dirname, '../../../data/app.ico'),
+        icon: path.join(__dirname, './data/app.ico'),
         resizable: false,
         autoHideMenuBar: true
     });
 
-    win.loadFile(path.join(__dirname, '../../../assets/html/src/index.html'));
+    win.loadFile(path.join(__dirname, './assets/html/src/index.html'));
     win.webContents.openDevTools();
 };
 
@@ -59,20 +60,27 @@ app.on('activate', () => {
 });
 
 autoUpdater.on('checking-for-update', () => {
-    //TODO: notify user
+    console.log("checking for update")
+        //TODO: notify user
 })
 autoUpdater.on('update-available', (info) => {
-    //TODO: notify user
+    console.log("update avaible: " + info)
+        //TODO: notify user
 })
 autoUpdater.on('update-not-available', (info) => {
+    console.log("update not avaible: " + info)
+    createWindow();
     //TODO: close updater and start main program
 })
 autoUpdater.on('error', (err) => {
-    //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
+    console.log("update error: " + err)
+        //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
 })
 autoUpdater.on('download-progress', (progressObj) => {
-    //TODO: print progress on html
+    console.log("download progress: " + progressObj)
+        //TODO: print progress on html
 })
 autoUpdater.on('update-downloaded', (info) => {
+    console.log("update downloaded: " + info)
     autoUpdater.quitAndInstall();
 });
