@@ -5,11 +5,9 @@ var updateStatus = document.getElementById('update_status');
 var loader = document.getElementsByClassName('loader');
 var loading_1 = document.getElementsByClassName('loading_1');
 
-log(loader);
-
 ipcRenderer.on('loading_bar', (event, arg) => {
     log(arg);
-    changePercentileOfBar(arg[0])
+    changePercentileOfBar(arg)
 });
 
 ipcRenderer.on('loading_status', (event, arg) => {

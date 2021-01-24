@@ -60,11 +60,11 @@ autoUpdater.on('checking-for-update', () => {
     //TODO: notify user
 })
 autoUpdater.on('update-available', (info) => {
-    updater.webContents.send("loading_status", info);
+    updater.webContents.send("loading_status", "Found update...");
     //TODO: notify user
 })
 autoUpdater.on('update-not-available', (info) => {
-    updater.webContents.send("loading_status", info);
+    updater.webContents.send("loading_status", "No update avaible");
     updater.close();
 })
 autoUpdater.on('error', (err) => {

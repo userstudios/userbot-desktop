@@ -57,7 +57,7 @@ async function checkUserBotIsInstalled() {
     } catch (err) {
         await resetInstallUpdateLoading();
         alert("Ein Fehler ist aufgetreten: " + err.message);
-        console.log(err)
+        log(err)
     }
 }
 
@@ -124,12 +124,12 @@ function getConfigDownloadPath() {
 
 async function moveFilesToTrashBin(files) {
     for (let i = 0; i < files.length; i++) {
-        console.log("Moving file to trash bin " + files[i])
+        log("Moving file to trash bin " + files[i])
         try {
             await trash(files[i]);
         } catch (err) {
             alert("Ein fehler ist beim installieren aufgetreten. Löschung des alten Versions ist fehlgeschlagen.");
-            console.log("Failed.");
+            log("Failed.");
             return false;
         }
         return true;
@@ -144,7 +144,7 @@ async function installJarToPath() {
     try {
         await download(downloadPath, arrayNames, fileEndings, arrayDownloadUrls);
     } catch (err) {
-        console.log(err);
+        log(err);
         throw new Error("Could not download the file.");
     }
 }
