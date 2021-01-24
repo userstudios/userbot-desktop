@@ -7,7 +7,7 @@
     "scripts": {
         "start": "electron .",
         "dist": "electron-builder",
-        "publish": "electron-builder -p onTag"
+        "publish": "electron-builder -p always"
     },
     "keywords": [],
     "author": {
