@@ -1,12 +1,13 @@
 {
     "name": "userbot-desktop",
-    "productName": "userbot-desktop",
+    "productName": "UBDesktop",
     "description": "A desktop app which is provided by UserStudios",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "main-src/app.js",
     "scripts": {
         "start": "electron .",
-        "dist": "electron-builder"
+        "dist": "electron-builder",
+        "publish": "electron-builder -p onTag"
     },
     "keywords": [],
     "author": {
@@ -33,11 +34,33 @@
         "electron-builder": "^22.9.1"
     },
     "build": {
+        "publish": [{
+            "provider": "github",
+            "owner": "yato361",
+            "repo": "userbot-desktop"
+        }],
         "appId": "com.github.yato361.userbot-desktop",
-        "target": [
-            "zip",
-            "dmg"
-        ]
+        "copyright": true,
+        "win": {
+            "publish": ["github"],
+            "target": [{
+                "target": "nsis",
+                "arch": [
+                    "x64"
+                ]
+            }],
+            "icon": "userbot_logo.ico"
+        },
+        "nsis": {
+            "installerIcon": "userbot_logo.ico",
+            "uninstallerIcon": "userbot_logo.ico",
+            "uninstallDisplayName": "UBDesktop",
+            "license": "LICENCE.md",
+            "oneClick": false,
+            "displayLanguageSelector": true,
+            "allowToChangeInstallationDirectory": true
+        }
+
     },
     "repository": "github:yato361/userbot-desktop"
 }
