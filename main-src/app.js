@@ -82,5 +82,5 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 autoUpdater.on('update-downloaded', (info) => {
     console.log("update downloaded: " + info)
-    autoUpdater.quitAndInstall();
+    autoUpdater.quitAndInstall(true, true);
 });
