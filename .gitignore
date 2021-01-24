@@ -88,8 +88,5 @@ typings/
 # Electron-Forge
 out/
 
-# Electron-Packager
-UBDesktop-win32-x64
-
-# WinInstaller
-windows_installer
+# Electron-Builder
+dist/
