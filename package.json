@@ -1,6 +1,6 @@
 {
-    "name": "userbot-desktop-app",
-    "productName": "userbot-desktop-app",
+    "name": "userbot-desktop",
+    "productName": "userbot-desktop",
     "description": "A desktop app which is provided by UserStudios",
     "version": "1.0.0",
     "main": "main-src/app.js",
