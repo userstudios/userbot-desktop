@@ -25,10 +25,6 @@ async function checkForUpdateAndCreateWindow() {
         autoHideMenuBar: true
     });
     await updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
-    updater.on('close', () => {
-        createWindow();
-        updater = null;
-    });
     autoUpdater.checkForUpdatesAndNotify();
 }
 async function createWindow() {
@@ -44,7 +40,7 @@ async function createWindow() {
         resizable: false,
         autoHideMenuBar: true
     });
-    mainAppWin.loadFile(path.join(__dirname, './assets/html/src/index.html'));
+    await mainAppWin.loadFile(path.join(__dirname, './assets/html/src/index.html'));
 };
 
 app.on('ready', checkForUpdateAndCreateWindow);
@@ -66,9 +62,12 @@ autoUpdater.on('update-available', (info) => {
 autoUpdater.on('update-not-available', (info) => {
     updater.webContents.send("loading_status", "No update avaible");
     updater.close();
+    createWindow();
 })
 autoUpdater.on('error', (err) => {
     updater.webContents.send("loading_status", err);
+    console.log(err);
+    app.quit();
     //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
 })
 autoUpdater.on('download-progress', (progressObj) => {
