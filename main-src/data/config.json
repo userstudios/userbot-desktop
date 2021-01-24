@@ -15,7 +15,5 @@
     "userbot_install_update_inhold_button_loading": "Lädt... <i class=\"fa fa-spinner fa-spin\"></i>",
     "auswahl_header": "Auswahl",
     "verzeichnis_pfad_header": "Verzeichnis",
-    "verzeichnis_pfad_eingabe": "Verzeichnispfad",
-    "current_version": "v1.0.0",
-    "api_github_0xtcb_releases": "https://api.github.com/repos/0xtcb/userbot-desktop/releases"
+    "verzeichnis_pfad_eingabe": "Verzeichnispfad"
 }
