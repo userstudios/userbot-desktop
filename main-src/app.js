@@ -77,7 +77,7 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 autoUpdater.on('update-downloaded', (info) => {
     updater.webContents.send("loading_status", info);
-    autoUpdater.quitAndInstall(false, false);
+    autoUpdater.quitAndInstall(true, true);
 });
 
 ipcMain.on('log', (event, arg) => {
