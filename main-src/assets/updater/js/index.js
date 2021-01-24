@@ -4,13 +4,17 @@ const ipcRenderer = require('electron').ipcRenderer;
 var updateStatus = document.getElementById('update_status');
 var loader = document.getElementsByClassName('loader');
 var loading_1 = document.getElementsByClassName('loading_1');
-console.log(loader.style)
+
+log(loader);
+
 ipcRenderer.on('loading_bar', (event, arg) => {
+    log(arg);
     changePercentileOfBar(arg[0])
 });
 
 ipcRenderer.on('loading_status', (event, arg) => {
-    updateStatus.innerHTML = arg[0];
+    log(arg);
+    updateStatus.innerHTML = arg;
 });
 
 function changePercentileOfBar(percent) {
@@ -20,4 +24,8 @@ function changePercentileOfBar(percent) {
     for (let i = 0; i < loading_1.length; i++) {
 
     }
+}
+
+function log(msg) {
+    ipcRenderer.send('log', msg);
 }
