@@ -6,7 +6,7 @@
     "main": "main-src/app.js",
     "scripts": {
         "start": "electron .",
-        "publish": "build -p always"
+        "dist": "electron-builder"
     },
     "keywords": [],
     "author": {
@@ -14,7 +14,6 @@
     },
     "config": {},
     "dependencies": {
-        "electron-builder": "^22.9.1",
         "electron-log": "^4.3.1",
         "electron-squirrel-startup": "^1.0.0",
         "electron-updater": "^4.3.5",
@@ -30,7 +29,8 @@
         "trash": "^7.0.0"
     },
     "devDependencies": {
-        "electron": "11.1.1"
+        "electron": "11.1.1",
+        "electron-builder": "^22.9.1"
     },
     "build": {
         "appId": "com.github.0xtcb.userbot-desktop",
