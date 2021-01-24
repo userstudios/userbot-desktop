@@ -14,7 +14,8 @@ ipcRenderer.on('loading_status', (event, arg) => {
 });
 
 function changePercentileOfBar(percent) {
-    document.documentElement.style.setProperty('--percentile', percent)
+    document.documentElement.style.setProperty('--percentile', percent + "%")
+    log("added " + percent)
 }
 
 function log(msg) {
