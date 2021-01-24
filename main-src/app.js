@@ -23,9 +23,10 @@ async function checkForUpdateAndCreateWindow() {
         resizable: false,
         autoHideMenuBar: true
     });
-    updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
+    await updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
     updater.on('close', () => {
         createWindow();
+        updater = null;
     });
     autoUpdater.checkForUpdatesAndNotify();
 }
@@ -42,9 +43,7 @@ async function createWindow() {
         resizable: false,
         autoHideMenuBar: true
     });
-
     mainAppWin.loadFile(path.join(__dirname, './assets/html/src/index.html'));
-    mainAppWin.webContents.openDevTools();
 };
 
 app.on('ready', checkForUpdateAndCreateWindow);
@@ -56,26 +55,26 @@ app.on('window-all-closed', () => {
 });
 
 autoUpdater.on('checking-for-update', () => {
-    console.log("checking for update")
-        //TODO: notify user
+    console.log("Checking for updates...");
+    //TODO: notify user
 })
 autoUpdater.on('update-available', (info) => {
-    console.log("update avaible: " + info)
-        //TODO: notify user
+    updater.webContents.send("loading_status", err);
+    //TODO: notify user
 })
 autoUpdater.on('update-not-available', (info) => {
-    console.log("update not avaible: " + info)
+    updater.webContents.send("loading_status", info);
     updater.close();
 })
 autoUpdater.on('error', (err) => {
-    console.log("update error: " + err)
-        //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
+    updater.webContents.send("loading_status", err);
+    //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
 })
 autoUpdater.on('download-progress', (progressObj) => {
-    console.log("download progress: " + progressObj)
-        //TODO: print progress on html
+    updater.webContents.send("loading_bar", progressObj.percent);
+    //TODO: print progress on html
 })
 autoUpdater.on('update-downloaded', (info) => {
-    console.log("update downloaded: " + info)
-    autoUpdater.quitAndInstall(true, true);
+    updater.webContents.send("loading_status", info);
+    autoUpdater.quitAndInstall(false, false);
 });
