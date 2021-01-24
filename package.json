@@ -34,16 +34,10 @@
     },
     "build": {
         "appId": "com.github.0xtcb.userbot-desktop",
-        "win": {
-            "target": [
-                "zip"
-            ]
-        },
-        "mac": {
-            "target": [
-                "zip"
-            ]
-        }
+        "target": [
+            "zip",
+            "dmg"
+        ]
     },
     "repository": "github:0xtcb/userbot-desktop"
 }
