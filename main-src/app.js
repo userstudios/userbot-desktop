@@ -12,7 +12,7 @@ var updater;
 async function checkForUpdateAndCreateWindow() {
     updater = new BrowserWindow({
         width: 200,
-        height: 200,
+        height: 130,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
@@ -24,11 +24,13 @@ async function checkForUpdateAndCreateWindow() {
         autoHideMenuBar: true
     });
     updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
+    updater.on('close', () => {
+        createWindow();
+    });
     autoUpdater.checkForUpdatesAndNotify();
 }
-
 async function createWindow() {
-    let win = new BrowserWindow({
+    let mainAppWin = new BrowserWindow({
         width: 500,
         height: 800,
         webPreferences: {
@@ -41,8 +43,8 @@ async function createWindow() {
         autoHideMenuBar: true
     });
 
-    win.loadFile(path.join(__dirname, './assets/html/src/index.html'));
-    win.webContents.openDevTools();
+    mainAppWin.loadFile(path.join(__dirname, './assets/html/src/index.html'));
+    mainAppWin.webContents.openDevTools();
 };
 
 app.on('ready', checkForUpdateAndCreateWindow);
@@ -50,12 +52,6 @@ app.on('ready', checkForUpdateAndCreateWindow);
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
-    }
-});
-
-app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
     }
 });
 
@@ -69,8 +65,7 @@ autoUpdater.on('update-available', (info) => {
 })
 autoUpdater.on('update-not-available', (info) => {
     console.log("update not avaible: " + info)
-    createWindow();
-    //TODO: close updater and start main program
+    updater.close();
 })
 autoUpdater.on('error', (err) => {
     console.log("update error: " + err)
