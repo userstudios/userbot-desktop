@@ -34,10 +34,18 @@
     },
     "build": {
         "appId": "com.github.yato361.userbot-desktop",
-        "target": [
-            "zip",
-            "dmg"
-        ]
+        "win": {
+            "target": [
+                "zip",
+                "dmg"
+            ]
+        },
+        "mac": {
+            "target": [
+                "zip",
+                "dmg"
+            ]
+        }
     },
     "repository": "github:yato361/userbot-desktop"
 }
