@@ -72,7 +72,7 @@ autoUpdater.on('update-not-available', (info) => {
     updater.close();
 })
 autoUpdater.on('error', (err) => {
-    updater.webContents.send("loading_status", err);
+    updater.webContents.send("loading_status", err.message);
     console.log(err);
     app.quit();
     //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
