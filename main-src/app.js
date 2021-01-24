@@ -12,7 +12,7 @@ var updater;
 async function checkForUpdateAndCreateWindow() {
     updater = new BrowserWindow({
         width: 200,
-        height: 130,
+        height: 100,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
