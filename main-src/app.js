@@ -84,7 +84,7 @@ autoUpdater.on('download-progress', (progressObj) => {
     }
 })
 autoUpdater.on('update-downloaded', (info) => {
-    updater.webContents.send("loading_status", info);
+    updater.webContents.send("loading_status", "Installing...");
     autoUpdater.quitAndInstall(true, true);
 });
 
