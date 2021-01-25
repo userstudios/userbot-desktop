@@ -36,7 +36,7 @@ async function checkForUpdateAndCreateWindow() {
 }
 async function createWindow() {
     let mainAppWin = new BrowserWindow({
-        width: 500,
+        width: 505,
         height: 800,
         webPreferences: {
             nodeIntegration: true,
