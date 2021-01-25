@@ -73,14 +73,15 @@ autoUpdater.on('update-not-available', (info) => {
 })
 autoUpdater.on('error', (err) => {
     updater.webContents.send("loading_status", err.message);
-    console.log(err);
+    log(err.message);
     app.quit();
     //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
 })
 autoUpdater.on('download-progress', (progressObj) => {
-    updater.webContents.send("loading_bar", progressObj.percent);
-    updater.webContents.send("loading_status", "Downloading...");
-    //TODO: print progress on html
+    if (!isNaN(progressObj.percent)) {
+        updater.webContents.send("loading_bar", progressObj.percent);
+        updater.webContents.send("loading_status", "Downloading...");
+    }
 })
 autoUpdater.on('update-downloaded', (info) => {
     updater.webContents.send("loading_status", info);
