@@ -49,11 +49,11 @@
                     "x64"
                 ]
             }],
-            "icon": "userbot_logo.ico"
+            "icon": "./main-src/data/app.ico"
         },
         "nsis": {
-            "installerIcon": "userbot_logo.ico",
-            "uninstallerIcon": "userbot_logo.ico",
+            "installerIcon": "./main-src/data/app.ico",
+            "uninstallerIcon": "./main-src/data/app.ico",
             "uninstallDisplayName": "UBDesktop",
             "license": "LICENCE.md",
             "oneClick": false,
