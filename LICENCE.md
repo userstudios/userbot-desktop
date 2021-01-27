@@ -18,11 +18,12 @@ You are permitted to load the UBDesktop software (for example a PC, laptop, mobi
 
 You are not permitted to:
 
-Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the Software nor permit the whole or any part of the Software to be combined with or become incorporated in any other software, nor decompile, disassemble or reverse engineer the Software or attempt to do any such things
-Reproduce, copy, distribute, resell or otherwise use the Software for any commercial purpose
-Allow any third party to use the Software on behalf of or for the benefit of any third party
-Use the Software in any way which breaches any applicable local, national or international law
-use the Software for any purpose that UserStudios considers is a breach of this EULA agreement
+Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the Software nor permit the whole or any part of the Software to be combined with or become incorporated in any other software, nor decompile, disassemble or reverse engineer the Software or attempt to do any such things,
+Reproduce, copy, distribute, resell or otherwise use the Software for any commercial purpose,
+Allow any third party to use the Software on behalf of or for the benefit of any third party,
+Use the Software in any way which breaches any applicable local, national or international law,
+use the Software for any purpose that UserStudios considers is a breach of this EULA agreement,
+
 Intellectual Property and Ownership
 UserStudios shall at all times retain ownership of the Software as originally downloaded by you and all subsequent downloads of the Software by you. The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of UserStudios.
 
