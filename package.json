@@ -42,7 +42,6 @@
         "appId": "com.github.0xtcb.userbot-desktop",
         "copyright": true,
         "win": {
-            "publisherName": "UserStudios",
             "publish": ["github"],
             "target": [{
                 "target": "nsis",
