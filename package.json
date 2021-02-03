@@ -3,7 +3,7 @@
     "productName": "UBDesktop",
     "description": "A desktop app which is provided by UserStudios",
     "version": "1.0.3",
-    "main": "main-src/app.js",
+    "main": "src/app.js",
     "scripts": {
         "start": "electron .",
         "dist": "electron-builder",
@@ -50,11 +50,11 @@
                     "x64"
                 ]
             }],
-            "icon": "./main-src/data/app.ico"
+            "icon": "./src/data/app.ico"
         },
         "nsis": {
-            "installerIcon": "./main-src/data/app.ico",
-            "uninstallerIcon": "./main-src/data/app.ico",
+            "installerIcon": "./src/data/app.ico",
+            "uninstallerIcon": "./src/data/app.ico",
             "uninstallDisplayName": "UBDesktop",
             "license": "LICENCE.md",
             "oneClick": false,
