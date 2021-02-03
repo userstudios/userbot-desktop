@@ -42,6 +42,7 @@
         "appId": "com.github.yato361.userbot-desktop",
         "copyright": true,
         "win": {
+            "publisherName": "UserStudios",
             "publish": ["github"],
             "target": [{
                 "target": "nsis",
