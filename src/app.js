@@ -9,7 +9,7 @@ if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-var start_main = false;
+var start_main = true;
 var updater;
 async function checkForUpdateAndCreateWindow() {
     updater = new BrowserWindow({
