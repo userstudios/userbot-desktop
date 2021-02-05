@@ -9,6 +9,7 @@ if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
+var skip_updater = true;
 var start_main = false;
 var updater;
 async function checkForUpdateAndCreateWindow() {
@@ -50,7 +51,7 @@ async function createWindow() {
     await mainAppWin.loadFile(path.join(__dirname, './assets/html/src/index.html'));
 };
 
-app.on('ready', checkForUpdateAndCreateWindow);
+app.on('ready', skip_updater ? createWindow : checkForUpdateAndCreateWindow);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
