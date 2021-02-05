@@ -61,28 +61,28 @@ app.on('window-all-closed', () => {
 autoUpdater.on('checking-for-update', () => {
     updater.webContents.send("loading_status", "Checking for updates...");
     //TODO: notify user
-})
+});
 autoUpdater.on('update-available', (info) => {
     updater.webContents.send("loading_status", "Found update...");
     //TODO: notify user
-})
+});
 autoUpdater.on('update-not-available', (info) => {
     updater.webContents.send("loading_status", "No update avaible");
     start_main = true;
     updater.close();
-})
+});
 autoUpdater.on('error', (err) => {
     updater.webContents.send("loading_status", "Error occurred");
     log(err.message);
     app.quit();
     //TODO: notify user, emit event to js file linked with the updater and retry in a couple of secounds
-})
+});
 autoUpdater.on('download-progress', (progressObj) => {
     if (!isNaN(progressObj.percent)) {
         updater.webContents.send("loading_bar", progressObj.percent);
         updater.webContents.send("loading_status", "Downloading...");
     }
-})
+});
 autoUpdater.on('update-downloaded', (info) => {
     updater.webContents.send("loading_status", "Installing...");
     autoUpdater.quitAndInstall(true, true);
