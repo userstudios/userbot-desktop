@@ -8,31 +8,35 @@ const { argv } = require('process');
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
-
+var start_dev = false;
 var start_main = false;
 var updater;
 async function checkForUpdateAndCreateWindow() {
-    updater = new BrowserWindow({
-        width: 200,
-        height: 100,
-        webPreferences: {
-            nodeIntegration: true,
-            enableRemoteModule: true,
-            contextIsolation: false
-        },
-        frame: false,
-        icon: path.join(__dirname, 'data/app.ico'),
-        resizable: false,
-        autoHideMenuBar: true
-    });
-    await updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
-    updater.on('close', () => {
-        if (start_main) {
-            createWindow();
-            updater = null;
-        }
-    });
-    autoUpdater.checkForUpdatesAndNotify();
+    if (!start_dev) {
+        updater = new BrowserWindow({
+            width: 200,
+            height: 100,
+            webPreferences: {
+                nodeIntegration: true,
+                enableRemoteModule: true,
+                contextIsolation: false
+            },
+            frame: false,
+            icon: path.join(__dirname, 'data/app.ico'),
+            resizable: false,
+            autoHideMenuBar: true
+        });
+        await updater.loadFile(path.join(__dirname, 'assets/updater/html/index.html'));
+        updater.on('close', () => {
+            if (start_main) {
+                createWindow();
+                updater = null;
+            }
+        });
+        autoUpdater.checkForUpdatesAndNotify();
+    } else {
+        createWindow();
+    }
 }
 async function createWindow() {
     let mainAppWin = new BrowserWindow({
