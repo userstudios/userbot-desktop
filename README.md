@@ -1,7 +1,7 @@
 # Release
 
 ### Installation Windows
-Um die Applikation zu installieren, können sie einfach über die Releases `UBDesktop-Setup-x.x.x.exe` herunterladen und ausführen.
+Um die Applikation zu installieren, können sie einfach über die Releases unsere Setup-Executable `UBDesktop-Setup-x.x.x.exe` herunterladen und ausführen.
 
 ### Installation Linux
 In Planung
