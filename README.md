@@ -2,7 +2,7 @@
 # Kontribution /Vorarbeit
 Um an diesem Projekt mitkontibutieren zu können müssen sie vorerst einige vorarbeiten vornehmen. \
 Zuerst installieren sie sich Node.js um bei der Entwicklung auf die Laufzeitumgebung zugreifen zu können. \
-Dies können sie über https://nodejs.org/de/download/ herunterladen und installieren.
+Dies können sie über https://nodejs.org/de/download/ herunterladen und installieren. \
 Zunächst müssen sie das Programm Git über die Webseite https://git-scm.com/ herunterladen und ebenfalls installieren.
 
 # Kontribution /Installation
