@@ -15,8 +15,8 @@ Mac-Programme kann man leider nur auf Mac-Betriebssystemen bauen.
 ### Vorarbeit
 Um an diesem Projekt mitkontibutieren zu können müssen sie vorerst einige vorarbeiten vornehmen. \
 Zuerst installieren sie sich Node.js um bei der Entwicklung auf die Laufzeitumgebung zugreifen zu können. \
-Dies können sie über https://nodejs.org/de/download/ herunterladen und installieren. \
-Zunächst müssen sie das Programm Git über die Webseite https://git-scm.com/ herunterladen und ebenfalls installieren.
+Dies können sie über https://nodejs.org/de/download/ herunterladen. \
+Zunächst müssen sie das Programm Git installiert haben. Dies können sie über das Link https://git-scm.com/ herunterladen.
 
 ### Installation
 Um das Projekt ausführen zu können müssen sie über die Kommandozeile diese Repository klonen. \
