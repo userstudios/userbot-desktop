@@ -8,7 +8,7 @@ const { argv } = require('process');
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
-var start_dev = false;
+var start_dev = true;
 var start_main = false;
 var updater;
 async function checkForUpdateAndCreateWindow() {
