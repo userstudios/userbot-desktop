@@ -3,6 +3,7 @@
     "productName": "UBDesktop",
     "description": "A desktop app which is provided by UserStudios",
     "version": "1.0.4",
+    "license": "SEE LICENSE IN LICENCE.mc",
     "main": "src/app.js",
     "scripts": {
         "start": "electron .",
@@ -42,7 +43,9 @@
         "appId": "com.github.0xtcb.userbot-desktop",
         "copyright": "UserStudios 2021",
         "win": {
-            "publish": ["github"],
+            "publish": [
+                "github"
+            ],
             "target": [{
                 "target": "nsis",
                 "arch": [
@@ -63,7 +66,6 @@
             "displayLanguageSelector": true,
             "allowToChangeInstallationDirectory": true
         }
-
     },
     "repository": "github:0xtcb/userbot-desktop"
 }
