@@ -90,3 +90,6 @@ out/
 
 # Electron-Builder
 dist/
+
+#VS Code
+.vscode/

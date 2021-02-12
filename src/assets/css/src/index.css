@@ -51,6 +51,7 @@ header {
     width: 100vw;
     height: 60px;
     border-bottom: var(--dark) 2px solid;
+    padding-bottom: 10px;
 }
 
 header>* {
@@ -138,10 +139,10 @@ main>h3 {
 }
 
 .nav a {
+    text-decoration: underline 2px;
     color: var(--dark);
     font-weight: 600;
     font-size: medium;
-    text-decoration: none;
     font-size: larger;
     font-weight: 800;
 }
@@ -336,23 +337,34 @@ input:checked+.slider:before {
 
 @media only screen and (max-width: 550px) {
     main {
-        display: block;
+        display: flex;
         margin-top: 135px;
+        gap: 0;
+        grid-template-rows: 1fr;
+        flex-direction: column;
     }
     main>div {
         margin: 10px;
     }
     header {
-        flex-direction: column;
+        display: grid;
         height: auto;
     }
     header>button {
         align-self: start;
-        margin: 10px;
-        margin-left: 20px;
+        margin: 10px 20px;
+    }
+    header>h1 {
+        width: calc(100vw - 40px);
     }
     .nav {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .nav-wrapper {
+        width: -moz-available;
+        grid-column: initial;
+        grid-row: initial;
     }
 }
 

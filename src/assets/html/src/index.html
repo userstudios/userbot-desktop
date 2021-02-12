@@ -26,20 +26,40 @@
 <body>
     <header>
         <h1>UserBot Installer/Updater</h1>
-        <button id="installUpdateButton">Installieren/Updaten</button>
-    </header>
-    <main>
-
+        <!-- <button id="installUpdateButton">Installieren/Updaten</button> -->
         <!-- NAVIGATION -->
 
         <div class="nav-wrapper">
             <div class="nav">
                 <a href="./index.html" style="color: var(--accent);">Installer/Updater</a>
                 <a href="./help.html" style="color: var(--dark);">Hilfe</a>
+                <a href="./news.html" style="color: var(--dark);">News</a>
+            </div>
+        </div>
+        
+    </header>
+    <main style="margin-top: 150px;">
+        <!-- h3-Elemente beschreiben eine neue Kategorie -->
+        <!-- Auswahl der jeweiligen UserBots -->
+        <h3 id="auswahl_header">Auswahl</h3>
+
+        <div class="nav-wrapper">
+            <div class="nav" id="userbot_selection">
+                Lädt...
             </div>
         </div>
 
-        <!-- h3-Elemente beschreiben eine neue Kategorie -->
+        <!-- Neue Kategorie -->
+
+        <h3 id="verzeichnis_pfad_header">Verzeichnis</h3>
+
+        <div class="cards">
+            <div>
+                <!-- Eingabe des Verzeichnispfades von -->
+                <h2 id="verzeichnis_pfad_eingabe">Verzeichnispfad</h2>
+                <div class="input-wrapper"><input type="text" id="directorypath" /></div>
+            </div>
+        </div>
 
         <h3>Datenschutz und AGBs</h3>
 
@@ -59,27 +79,7 @@
 
             </div>
         </div>
-
-        <!-- Neue Kategorie -->
-
-        <h3 id="verzeichnis_pfad_header">Verzeichnis</h3>
-
-        <div class="cards">
-            <div>
-                <!-- Eingabe des Verzeichnispfades von -->
-                <h2 id="verzeichnis_pfad_eingabe">Verzeichnispfad</h2>
-                <div class="input-wrapper"><input type="text" id="directorypath" /></div>
-            </div>
-        </div>
-
-        <!-- Auswahl der jeweiligen UserBots -->
-        <h3 id="auswahl_header">Auswahl</h3>
-
-        <div class="nav-wrapper">
-            <div class="nav" id="userbot_selection">
-                Lädt...
-            </div>
-        </div>
+        <button id="installUpdateButton">Installieren/Updaten</button>
 
     </main>
 </body>
