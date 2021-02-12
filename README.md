@@ -39,7 +39,7 @@ Sollten sie die Repository geklont haben, können sie über das Befehl `npm run 
 Hierbei ist zu achten, dass sie sich mit der Konsole in dem Verzeichnis befinden.
 
 ### Commits
-Sie können über moderne Git-Applikationen wie GitHub Desktop sich an diesem Projekt beteiligen, indem sie Pull requests abschicken. \
-Diese werden überprüft und möglicherweise akzeptiert.
+Sie können sich über moderne Git-Applikationen wie GitHub Desktop an diesem Projekt beteiligen, indem sie Pull requests abschicken. \
+Diese werden überprüft und möglicherweise übernommen.
 
 © 2021 UserStudios/Yato361.  All rights reserved.
