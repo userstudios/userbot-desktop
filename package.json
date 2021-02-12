@@ -3,7 +3,7 @@
     "productName": "UBDesktop",
     "description": "A desktop app which is provided by UserStudios",
     "version": "1.0.4",
-    "license": "SEE LICENSE IN LICENCE.mc",
+    "license": "SEE LICENSE IN LICENCE.md",
     "main": "src/app.js",
     "scripts": {
         "start": "electron .",
