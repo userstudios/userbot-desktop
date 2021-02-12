@@ -42,4 +42,4 @@ Hierbei ist zu achten, dass sie sich mit der Konsole in dem Verzeichnis befinden
 Sie können über moderne Git-Applikationen wie GitHub Desktop sich an diesem Projekt beteiligen, indem sie Pull requests abschicken. \
 Diese werden überprüft und möglicherweise akzeptiert.
 
-© 2021 UserStudios.  All rights reserved.
+© 2021 UserStudios/Yato361.  All rights reserved.
