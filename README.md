@@ -21,7 +21,7 @@ Zunächst müssen sie das Programm Git installiert haben. Dies können sie über
 ### Installation
 Um das Projekt ausführen zu können müssen sie über die Kommandozeile diese Repository klonen. \
 Dies können sie in einem beliebigen Verzeichnis mit `git clone https://github.com/Yato361/userbot-desktop` durchführen. \
-Um die fehlenden Module herunterzuladen, gibt ihr das Befehl `npm install` ein.
+Um die fehlenden Module herunterzuladen, geben sie das Befehl `npm install` ein.
 
 ### Info
 Um die Update-Sequenz zu überspringen müssen sie zuerst in dem app.js, welches sich im `src` Ordner befindet, eine Zeile Programm manipulieren. \
