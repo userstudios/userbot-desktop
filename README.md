@@ -24,8 +24,8 @@ Dies können sie in einem beliebigen Verzeichnis mit `git clone https://github.c
 Um die fehlenden Module herunterzuladen, geben sie das Befehl `npm install` ein.
 
 ### Info
-Um die Update-Sequenz zu überspringen müssen sie zuerst in dem app.js, welches sich im `src` Ordner befindet, eine Zeile Programm manipulieren. \
-Hierzu suchen sie die Variable `start_dev` und schreiben sie wie unten beschrieben um. 
+Um die Update-Sequenz zu überspringen, müssen sie zuerst in dem app.js, welches sich im `src` Ordner befindet, eine Zeile Programm manipulieren. \
+Hierzu suchen sie die Variable `start_dev` und schreiben sie, wie unten beschrieben, um. 
 ```c 
 var start_dev = false;
 ```
