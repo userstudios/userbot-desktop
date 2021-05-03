@@ -2,7 +2,7 @@
     "name": "userbot-desktop",
     "productName": "UBDesktop",
     "description": "A desktop app which is provided by UserStudios",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "SEE LICENCE IN LICENCE.md",
     "main": "src/app.js",
     "scripts": {
