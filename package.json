@@ -44,6 +44,7 @@
         "appId": "com.github.yato361.userbot-desktop",
         "copyright": "UserStudios 2021",
         "win": {
+            "verifyUpdateCodeSignature": false,
             "publish": [
                 "github"
             ],
