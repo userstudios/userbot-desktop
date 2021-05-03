@@ -95,3 +95,5 @@ autoUpdater.on('update-downloaded', (info) => {
 ipcMain.on('log', (event, arg) => {
     console.log(arg);
 });
+
+/* Test */
