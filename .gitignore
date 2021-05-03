@@ -93,3 +93,5 @@ dist/
 
 #VS Code
 .vscode/
+*.xml
+*.iml
