@@ -36,11 +36,13 @@
         "electron-builder": "^22.10.5"
     },
     "build": {
-        "publish": [{
-            "provider": "github",
-            "owner": "0xtcb",
-            "repo": "userbot-desktop"
-        }],
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "0xtcb",
+                "repo": "userbot-desktop"
+            }
+        ],
         "appId": "com.github.0xtcb.userbot-desktop",
         "copyright": "UserStudios 2021",
         "win": {
@@ -48,12 +50,14 @@
             "publish": [
                 "github"
             ],
-            "target": [{
-                "target": "nsis",
-                "arch": [
-                    "x64"
-                ]
-            }],
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
             "icon": "./src/data/app.ico",
             "publisherName": [
                 "UserStudios"
