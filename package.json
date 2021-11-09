@@ -32,15 +32,17 @@
         "trash": "^7.2.0"
     },
     "devDependencies": {
-        "electron": "^13.5.1",
+        "electron": "^15.3.1",
         "electron-builder": "^22.13.1"
     },
     "build": {
-        "publish": [{
-            "provider": "github",
-            "owner": "userstudios",
-            "repo": "userbot-desktop"
-        }],
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "userstudios",
+                "repo": "userbot-desktop"
+            }
+        ],
         "appId": "com.github.userstudios.userbot-desktop",
         "copyright": "UserStudios 2021",
         "win": {
@@ -48,12 +50,14 @@
             "publish": [
                 "github"
             ],
-            "target": [{
-                "target": "nsis",
-                "arch": [
-                    "x64"
-                ]
-            }],
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
             "icon": "./src/data/app.ico",
             "publisherName": [
                 "UserStudios"
