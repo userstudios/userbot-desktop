@@ -38,10 +38,10 @@
     "build": {
         "publish": [{
             "provider": "github",
-            "owner": "yato361",
+            "owner": "userstudios",
             "repo": "userbot-desktop"
         }],
-        "appId": "com.github.yato361.userbot-desktop",
+        "appId": "com.github.userstudios.userbot-desktop",
         "copyright": "UserStudios 2021",
         "win": {
             "verifyUpdateCodeSignature": false,
@@ -69,5 +69,5 @@
             "allowToChangeInstallationDirectory": true
         }
     },
-    "repository": "github:yato361/userbot-desktop"
+    "repository": "github:userstudios/userbot-desktop"
 }
