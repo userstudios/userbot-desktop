@@ -2,7 +2,7 @@
     "name": "userbot-desktop",
     "productName": "UBDesktop",
     "description": "A desktop app which is provided by UserStudios",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "license": "SEE LICENCE IN LICENCE.md",
     "main": "src/app.js",
     "scripts": {
@@ -44,7 +44,7 @@
             }
         ],
         "appId": "com.github.userstudios.userbot-desktop",
-        "copyright": "UserStudios 2021",
+        "copyright": "UserStudios 2022",
         "win": {
             "verifyUpdateCodeSignature": false,
             "publish": [
